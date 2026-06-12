@@ -1,0 +1,19 @@
+## Data Source Plan
+
+Initially, this project was designed to use the **Alpha Vantage API** to extract historical stock data and financial metrics. However, during implementation, a key limitation was identified: the free tier of Alpha Vantage restricts access to approximately the most recent 100 days of data.
+
+Because this project required a long historical dataset (dating back to 2007) to support time-series analysis, indicator calculations, and portfolio performance tracking, this limitation made Alpha Vantage unsuitable for the pipeline’s needs.
+
+To address this, the data source was switched to **Yahoo Finance**, accessed through the `yfinance` Python library. This alternative provides:
+
+- Full historical stock data (including data prior to 2007)
+- Reliable daily pricing information
+- Simple integration with pandas DataFrames
+- No restrictive historical limits for standard use
+
+This change ensured that the ETL pipeline could:
+- Perform long-term trend analysis
+- Calculate technical indicators over extended periods
+- Support realistic portfolio simulations
+
+Overall, switching to Yahoo Finance enabled the project to meet its data requirements while maintaining a streamlined and efficient extraction process.
